@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="title wow fadeInDown" data-wow-offset="200" style="animation-name: none;">Vehicle Models - <span class="subtitle">Our rental fleet at a glance</span></h2>
+    </div>
+    <!-- Vehicle nav start -->
+    <div class="col-md-3 vehicle-nav-row wow fadeInUp" data-wow-offset="100" style="animation-name: none;">
+        <div id="vehicle-nav-container">
+            <ul class="vehicle-nav">
+                <li ng-class="{active: $parent.selected_vehicle == vehicle}" ng-repeat="vehicle in $parent.vehicles"><a href="" ng-click="change_vehicle(vehicle)">{$ vehicle.name $}</a><span class="active">&nbsp;</span></li>
+            </ul>
+            <div class="styled-select-vehicle-data">
+                <select class="vehicle-data-select" ng-model="$parent.selected_vehicle" ng-options="vehicle.name for vehicle in $parent.vehicles">
+                    <!--<option value="{$ vehicle.id $}" ng-repeat="vehicle in $parent.vehicles">{$ vehicle.name $}</option>-->
+                </select>
+            </div>
+        </div>
+        <div class="vehicle-nav-control">
+            <a class="vehicle-nav-scroll" ng-disabled="$parent.disableUp=='true'" ng-click="change_vehicle_with_arrows('up')"><i class="fa fa-chevron-up"></i></a>
+            <a class="vehicle-nav-scroll" ng-disabled="$parent.disableDown=='true'" ng-click="change_vehicle_with_arrows('down')"><i class="fa fa-chevron-down"></i></a>
+        </div>
+    </div>
+    <!-- Vehicle nav end -->
+    <div class="vehicle-data" style="display: block;">
+        <div class="col-md-6 wow fadeIn" data-wow-offset="100" style="animation-name: none;">
+            <div class="vehicle-img">
+                <img class="img-responsive" src="{$ $parent.selected_vehicle.image $}" alt="Vehicle">
+            </div>
+        </div>
+        <div class="col-md-3 wow fadeInUp" data-wow-offset="200" style="animation-name: none;">
+            <div class="vehicle-price">{$ $parent.selected_vehicle.rent | currency $}<span class="info"> rent per day</span></div>
+            <table class="table vehicle-features">
+                <tbody>
+                    <tr>
+                        <td>Model</td>
+                        <td>{$ $parent.selected_vehicle.model $}</td>
+                    </tr>
+                    <tr>
+                        <td>Doors</td>
+                        <td>{$ $parent.selected_vehicle.doors $}</td>
+                    </tr>
+                    <tr>
+                        <td>Seats</td>
+                        <td>{$ $parent.selected_vehicle.seats $}</td>
+                    </tr>
+                    <tr>
+                        <td>Luggage</td>
+                        <td>{$ $parent.selected_vehicle.luggage $}</td>
+                    </tr>
+                    <!--<tr>
+                        <td>Transmission</td>
+                        <td>Automatic</td>
+                    </tr>-->
+                    <tr>
+                        <td>Air conditioning</td>
+                        <td>{$ $parent.selected_vehicle.air_condition $}</td>
+                    </tr>
+                    <tr>
+                        <td>Minimum age</td>
+                        <td>{$ $parent.selected_vehicle.minimum_age $}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="" ng-click="gotoAnchor('top')" class="reserve-button scroll-to"><span class="glyphicon glyphicon-calendar"></span> Reserve now</a>
+        </div>
+    </div>
+</div>

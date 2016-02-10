@@ -1,0 +1,22 @@
+{% extends "Car_RentalApp/base.html" %}
+{% block js %}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXTzXs5li5iImx0MI3BRHXFcjCUSTYfsE"></script>
+<script src="{{ STATIC_URL }}jquery/jquery-1.11.3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="{{ STATIC_URL }}bootstrap/bootstrap.js"></script>
+<script src="{{ STATIC_URL }}angular/angular-1.5.0.js"></script>
+<script src="{{ STATIC_URL }}angular/angularRoute-1.5.0.js"></script>
+<script src="{{ STATIC_URL }}Car_RentalApp/js/wow.min.js"></script>
+<script src="{{ STATIC_URL }}Car_RentalApp/js/app.js"></script>
+<script src="{{ STATIC_URL }}Car_RentalApp/js/controllers/controllers.js"></script>
+<script src="{{ STATIC_URL }}Car_RentalApp/js/custom.js"></script>
+
+<link href="{{ STATIC_URL }}bootstrap/bootstrap.css" rel="stylesheet" />
+<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<link href="{{ STATIC_URL }}Car_RentalApp/css/font-awesome.min.css" rel="stylesheet" />
+<link href="{{ STATIC_URL }}Car_RentalApp/css/animate.css" rel="stylesheet" />
+<link href="{{ STATIC_URL }}Car_RentalApp/css/styles.css" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+<div ng-view></div>
+{% endblock %}

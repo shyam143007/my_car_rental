@@ -1,0 +1,22 @@
+<div class="container location-select-container wow bounceInDown" data-wow-offset="200" style="animation-name: none;">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="location-select">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h2>Car Rental Locations</h2>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="styled-select-location">
+                            <select id="location-map-select" ng-model="$parent.loc_address" ng-options="location.name for location in $parent.loc_locations"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow-down-location">&nbsp;</div>
+</div>
+<!--<div class="map" id="map"></div>-->
+<div id="map" class="map my-maps"></div>
+

@@ -1,0 +1,273 @@
+<header data-spy="affix" data-offset-top="39" data-offset-bottom="0" class="large affix-top">
+    <div class="row container box">
+        <div class="col-md-5">
+            <!-- Logo start -->
+            <div class="brand">
+                <h1><a class="scroll-to" href="#top"><img class="img-responsive" src="{$ logo $}" alt="Car|Rental"></a></h1>
+            </div>
+            <!-- Logo end -->
+        </div>
+        <div class="col-md-7">
+            <div class="pull-right">
+                <div class="header-info pull-right">
+                    <div class="contact">CONTACT: (562) 498-4600</div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <nav id="navbar-example2" class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#car_nav">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand scroll-to" href="#top"><img class="img-responsive" src="{$ logo $}" alt="Car|Rental"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="car_nav">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="" ng-click="gotoAnchor('teaser')">Home</a></li>
+                            <li><a href="" ng-click="gotoAnchor('services')">Services</a></li>
+                            <li> <a href="" ng-click="gotoAnchor('vehicles')">Vehicle Models</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                    Blog
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>Blog Posts</li>
+                                    <li>Blog Single Post</li>
+                                    <li>Error 404</li>
+                                </ul>
+                            </li>
+                            <li><a href="" ng-click="gotoAnchor('locations')">Locations</a></li>
+                            <li><a href="" ng-click="gotoAnchor('contact')">Contact</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<section id="teaser" ng-include="'static/Car_RentalApp/partials/car_reservation.html'"></section>
+<div class="arrow-down"></div>
+
+<section id="services" class="container" ng-include="'static/Car_RentalApp/partials/services.html'"></section>
+
+<section id="newsletter" class="wow slideInLeft" data-wow-offset="300" ng-include="'static/Car_RentalApp/partials/news_letter.html'"></section>
+
+<section id="vehicles" ng-include="'static/Car_RentalApp/partials/vehicle_models.html'" class="container"></section>
+
+<section id="reviews" class="container wow fadeInUp" ng-include="'static/Car_RentalApp/partials/reviews.html'"></section>
+
+<section id="locations" ng-include="'static/Car_RentalApp/partials/location.html'"></section>
+
+<section id="information" class="container" ng-include="'static/Car_RentalApp/partials/information.html'"></section>
+
+<section id="contact" class="container wow bounceInUp" data-wow-offset="50" ng-include="'static/Car_RentalApp/partials/contact_us.html'"></section>
+
+<a href="" ng-click="gotoAnchor('top')" class="scrollup fadeOutRight animated">ScrollUp</a>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="footer-nav">
+                    <li><a class="scroll-to" href="" ng-click="gotoAnchor('top')">Home</a></li>
+                    <li><a class="scroll-to" href="" ng-click="gotoAnchor('services')">Service</a></li>
+                    <li><a class="scroll-to" href="" ng-click="gotoAnchor('vehicles')">Vehicle Models</a></li>
+                    <li><a class="scroll-to" href="" ng-click="gotoAnchor('reviews')">Reviews</a></li>
+                    <li><a class="scroll-to" href="" ng-click="gotoAnchor('locations')">Locations</a></li>
+                    <li><a class="scroll-to" href="" ng-click="gotoAnchor('contact')">Contact</a></li>
+                </ul>
+                <div class="clearfix"></div>
+                <p class="copyright">&copy; 2016 Adept Concepts, All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="checkout-form" name="checkout-form">
+                <input type="hidden" name="action" value="send_inquiry_form">
+
+                <!-- Modal header start -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Complete reservation</h4>
+                </div>
+                <!-- Modal header end -->
+                <!-- Modal body start -->
+                <div class="modal-body">
+                    <!-- Checkout Info start -->
+                    <div class="checkout-info-box">
+                        <h3><i class="fa fa-info-circle"></i> Upon completing this reservation enquiry, you will receive::</h3>
+                        <p>Your rental voucher to produce on arrival at the rental desk and a toll-free customer support number.</p>
+                    </div>
+                    <!-- Checkout Info end -->
+                    <!-- Checkout Rental Info start -->
+                    <div class="checkout-vehicle-info">
+                        <div class="location-date-info">
+                            <h3>Location &amp; Date</h3>
+                            <div class="info-box">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <h4 class="info-box-title">Pick-Up Time</h4>
+                                <p class="info-box-description"><span id="pick-up-date-ph"></span> at <span id="pick-up-time-ph"></span>{$ startDate $} {$ startTime.display $}</p>
+                                <input type="hidden" name="pick-up" id="pick-up" value="">
+                            </div>
+                            <div class="info-box">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <h4 class="info-box-title">Drop-Off Time</h4>
+                                <p class="info-box-description"><span id="drop-off-date-ph"></span> at <span id="drop-off-time-ph"></span>{$ leavingDate $} {$ leavingTime.display $}</p>
+                                <input type="hidden" name="drop-off" id="drop-off" value="">
+                            </div>
+                            <div class="info-box">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <h4 class="info-box-title">Pick-Up Location</h4>
+                                <p class="info-box-description" id="pickup-location-ph">{$ pickUpLocation $}</p>
+                                <input type="hidden" name="pickup-location" id="pickup-location" value="">
+                            </div>
+                            <div class="info-box">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <h4 class="info-box-title">Drop-Off Location</h4>
+                                <p class="info-box-description" id="dropoff-location-ph">{$ droppingLocation $}</p>
+                                <input type="hidden" name="dropoff-location" id="dropoff-location" value="">
+                            </div>
+                        </div>
+
+                        <div class="vehicle-info">
+                            <h3>CAR: <span id="selected-car-ph"></span></h3>{$ rsrv_car.name $} <a data-dismiss="modal" ng-click="gotoAnchor('vehicles')" class="scroll-to">[ Vehicle Models ]</a>
+                            <input type="hidden" name="selected-car" id="selected-car" value="">
+                            <div class="clearfix"></div>
+                            <div class="vehicle-image">
+                                <img class="img-responsive" id="selected-vehicle-image" src="{$ rsrv_car.image $}" alt="Vehicle">
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <!-- Checkout Rental Info end -->
+                    <hr>
+                    <!-- Checkout Personal Info start -->
+                    <div class="checkout-personal-info">
+                        <h3>PERSONAL INFORMATION</h3>
+                        <div class="alert alert-danger hidden" id="checkout-form-msg">
+                            <button class="close" type="button" ng-click="remove_alert('checkout-form-msg')">&times;</button>
+                            <strong>Note : </strong>All fields are required
+                        </div>
+                        <div class="form-group left">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" class="form-control" name="first-name" id="first-name" placeholder="Enter your first name" ng-model="rsrv_firstName" required>
+                            <span ng-show="checkout-form.first-name.$error.required" class="error">Required</span>
+                        </div>
+                        <div class="form-group right">
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" class="form-control" name="last-name" id="last-name" placeholder="Enter your last name" ng-model="rsrv_lastName" required>
+                            <span ng-show="checkout-form.last-name.$error.required" class="error">Required</span>
+                        </div>
+                        <div class="form-group left">
+                            <label for="phone-number">Phone Number:</label>
+                            <input type="text" class="form-control" name="phone-number" id="phone-number" placeholder="Enter your phone number" ng-model="rsrv_phone" ng-pattern="/^[0-9]{1,13}$/" required>
+                            <span class="error" ng-show="checkout-form.phone-number.$error.required">Required</span>
+                            <span class="error" ng-show="checkout-form.phone.$error.number">In-valid phone number</span>
+                        </div>
+                        <div class="form-group right age">
+                            <label for="age">Age:</label>
+                            <div class="styled-select-age">
+                                <select ng-model="selected_age" name="age" id="age" ng-options="age.age for age in ages track by age.val"></select>
+                            </div>
+                        </div>
+                        <div class="form-group left">
+                            <label for="email-address">Email Address:</label>
+                            <input type="email" class="form-control" name="email-address" id="email-address" placeholder="Enter your email address" ng-model="rsrv_emailAddress" required>
+                            <span class="error" ng-show="checkout-form.email-address.$error.required">Required</span>
+                            <span class="error" ng-show="checkout-form.email-address.$error.email">Not valid email</span>
+                        </div>
+                        <div class="form-group right">
+                            <label for="email-address-confirm">Confirm Email Address:</label>
+                            <input type="email" class="form-control" name="email-address-confirm" id="email-address-confirm" placeholder="Confirm your email address" ng-model="rsrv_confirmEmailAddress" required>
+                            <span class="error" ng-show="checkout-form.email-address-confirm.$error.required">Required</span>
+                            <span class="error" ng-show="checkout-form.email-address-confirm.$error.email">Not valid email</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Checkout Personal Info end -->
+                    <!-- Checkout Address Info start -->
+                    <div class="checkout-address-info">
+                        <div class="form-group address">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Enter your Street an No." ng-model="rsrv_address" required>
+                            <span class="error" ng-show="checkout-form.address.$error.required">Required</span>
+                        </div>
+                        <div class="form-group city">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" id="city" placeholder="Enter your City" ng-model="rsrv_city" required>
+                            <span class="error" ng-show="checkout-form.city.$error.required">Required</span>
+                        </div>
+                        <div class="form-group zip-code">
+                            <label for="zip-code">Zip Code</label>
+                            <input type="text" class="form-control" name="zip-code" id="zip-code" placeholder="Enter your Zip Code" ng-model="rsrv_zipCode" ng-pattern="/^[0-9]{1,6}$/" required>
+                            <span class="error" ng-show="checkout-form.zip-code.$error.required">Required</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Checkout Address Info end -->
+
+                    <div class="newsletter">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input id="check1" type="checkbox" name="newsletter" value="yes" ng-model="rsrv_send_updates">
+                                <label for="check1">Please send me latest news and updates</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Modal body end -->
+                <!-- Modal footer start -->
+                <div class="modal-footer">
+                    <span class="btn-border btn-yellow">
+                        <button class="btn btn-primary btn-yellow" ng-click="reserve_car()">Reserve now</button>
+                    </span>
+                    <span class="btn-border btn-gray">
+                        <button type="button" class="btn btn-default btn-gray" ng-click="clear_values()" data-dismiss="modal">Cancel</button>
+                    </span>
+                </div>
+                <!-- Modal footer end -->
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" role="dialog" id="confirmation">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Car Rental</h4>
+            </div>
+            <div class="modal-body">
+                <br />
+                <h2 align="center">
+                    <span ng-if="message=='feedback'">
+                        Thanks for the feedback.
+                    </span>
+                    <span ng-if="message=='booking'">
+                        Thanks for using our service.
+                    </span>
+                </h2>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

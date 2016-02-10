@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="row">
+        <!--carousel-->
+        <div class="col-md-7 col-xs-12 pull-right">
+            <!-- <car-carousel></car-carousel>-->
+            <!--<div id="car_carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item">
+
+                        <img src="static/Car_RentalApp/Images/car1.png" />
+                    </div>
+                    <div class="item active">
+
+                        <img src="static/Car_RentalApp/Images/car2.png" />
+                    </div>
+                </div>
+                <div data-target="#car_carousel" class="left carousel-control" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                </div>
+                <div data-target="#car_carousel" class="right carousel-control" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                </div>
+            </div>-->
+            <div class="car-carousel">
+                <div class="active-car">
+                    <h1 class="title">
+                        Get 15% off on Rental
+                        <span class="subtitle">Plan your trip now</span>
+                    </h1>
+                    <img class="car-image" src="static/Car_RentalApp/Images/car1.png" class="pull-right" />
+                </div>
+                <div class="inactive-car">
+                    <h1 class="title">
+                        Get 35% off on Rental
+                        <span class="subtitle">Don't miss the offer</span>
+                    </h1>
+                    <img src="static/Car_RentalApp/Images/car2.png" class="pull-right" />
+                </div>
+            </div>
+        </div>
+        <!--registration form-->
+        <div class="col-md-5 col-xs-12 pull-left">
+            <div class="reservation-form-shadow">
+                <form name="car-select-form" id="car-select-form">
+                    <!--warning-->
+                    <div class="alert alert-danger hidden" id="car-select-form-msg">
+                        <button type="button" class="close" data-dissmiss="alert" aria-hidden="true" ng-click="remove_alert('car-select-form-msg')">&times;</button>
+                        <strong>Note:</strong> All fields required!!!
+                    </div>
+
+                    <!--select cars-->
+                    <div class="styled-select-car">
+                        <select name="car-select" id="car-select" ng-model="$parent.rsrv_car" ng-options="car.name for car in $parent.registered_cars track by car.id">
+                            <option value="">Select your car type</option>
+                            <!--<option value="{$ car.image $}" ng-repeat="car in $parent.registered_cars">{$ car.name $}</option>-->
+                        </select>
+                    </div>
+
+                    <!-- location details -->
+                    <div class="location">
+                        <!--pick-up-->
+                        <div class="input-group pick-up">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                Pick-up
+                            </span>
+                            <input type="text" name="pick-up-location" id="pick-up-location" class="form-control autocomplete-location" ng-model="$parent.pickUpLocation" placeholder="Enter a city or airport" autocomplete="off" />
+                        </div>
+
+                        <p>&nbsp;</p>
+                        <!--<a class="different-drop-off" href="" ng-click="show_drop_off_location()">Need a different drop off location?</a>-->
+                        <!--dropping point-->
+                        <div class="input-group drop-off" id="diff-drop-off">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                Drop-off
+                            </span>
+                            <input type="text" name="drop-off-location" id="drop-off-location" class="form-control autocomplete-location" ng-model="$parent.droppingLocation" placeholder="Enter a city or airport" autocomplete="off" />
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <!-- pick up time -->
+                    <div class="datetime pick-up">
+                        <div class="date pull-left">
+                            <div class="input-group">
+                                <span class="input-group-addon pixelfix">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    Pick-up
+                                </span>
+                                <input type="text" name="pick-up-date" id="pick-up-date" class="form-control datepicker" placeholder="mm/dd/yyyy" datepicker ng-model="$parent.startDate" readonly />
+                            </div>
+                        </div>
+                        <div class="time pull-right">
+                            <div class="styled-select-time">
+                                <select ng-model="startTime" name="pick-up-time" id="pick-up-time" ng-options="interval.display for interval in $parent.intervals track by interval.val">
+                                    <!--<option ng-repeat="interval in $parent.intervals" value="{$ interval $}">{$ interval $}</option>-->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <!-- dropping time -->
+                    <div class="datetime drop-off">
+                        <div class="date pull-left">
+                            <div class="input-group">
+                                <span class="input-group-addon pixelfix"><span class="glyphicon glyphicon-calendar"></span> Drop-off</span>
+                                <input type="text" name="drop-off-date" id="drop-off-date" class="form-control datepicker" placeholder="mm/dd/yyyy" datepicker ng-model="$parent.leavingDate" ng-init="" readonly>
+                            </div>
+                        </div>
+                        <div class="time pull-right">
+                            <div class="styled-select-time">
+                                <select ng-model="leavingTime" name="drop-off-time" id="drop-off-time" ng-options="interval.display for interval in $parent.intervals track by interval.val">
+                                    <!--<option ng-repeat="interval in $parent.intervals" value="{$ interval $}">{$ interval $}</option>-->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input class="submit" type="button" name="submit" value="continue car reservation" id="checkoutModalLabel" ng-click="show_modal()">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
